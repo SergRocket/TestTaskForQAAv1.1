@@ -1,23 +1,10 @@
 package TestCases;
 
-import PageObjects.LoginPage;
 import PageObjects.MedicationPage;
-
-import org.checkerframework.checker.units.qual.K;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
-import java.awt.*;
-import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -25,22 +12,29 @@ public class MedicationRequest extends LogIn {
 
     @Test
     public void Medicatonrequest() throws InterruptedException {
+        //setting implicit wait
         driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
+        //creating an Object for the class
         MedicationPage MP = new MedicationPage(driver);
+        //clicking on the medication element
         MP.MedSec().click();
+        //Asserting all required elements are shown
         WDW.until(ExpectedConditions.visibilityOfAllElements(MP.Reque(), MP.CompleteD(), MP.ReturnMedic(),
                 MP.Newrequest()));
+        //Clicking on the NewRequest button
         MP.Newrequest().click();
+        //Selecting the patient from the dropdown
         MP.PatienT().click();
         Thread.sleep(1000);
-        MP.PatienT().sendKeys("Test Pati");
+        MP.PatienT().sendKeys("Test Patient - P00");
         Thread.sleep(2000);
         int i=1;
-        while(i<4){
+        while(i<3){
             MP.PatienT().sendKeys(Keys.ARROW_DOWN);
             i++;
         }
         MP.PatienT().sendKeys(Keys.ENTER);
+        //setting the date visit
         MP.DateVisit().click();
         Thread.sleep(1000);
         int c=1;
@@ -49,29 +43,38 @@ public class MedicationRequest extends LogIn {
             c++;
         }
         MP.DateVisit().sendKeys(Keys.ENTER);
+        //input of the medicine
         MP.MedicatioN().sendKeys("Pramoxine");
         MP.MedicatioN().sendKeys(Keys.ARROW_DOWN);
         MP.MedicatioN().sendKeys(Keys.ENTER);
+        //input of the prescriprion
         MP.PrescriptioN().sendKeys("Testing prescription");
+        //selecting the date from the calendar
         MP.PrescrDate().click();
         Thread.sleep(1000);
         MP.weekDay().click();
         Thread.sleep(500);
         MP.PrescrDate().sendKeys(Keys.ARROW_LEFT);
         MP.PrescrDate().sendKeys(Keys.ENTER);
+        //creating an object for the class
         Random rand = new Random();
+        //setting random integer
         int qr = rand.nextInt(1)+3;
         int qrf = rand.nextInt(5)+8;
+        //converting the integer to the String
         String QR = Integer.toString(qr);
         String QRef = Integer.toString(qrf);
+        //input of the ramdom integer
         MP.QuantitY().sendKeys(QR);
         MP.RefilS().sendKeys(QRef);
+        //Click on the Add button
         MP.Addbutton().click();
+        //waiting for the elements on the pop up to be visible
         WDW.until(ExpectedConditions.visibilityOfAllElements(MP.ModalWindow(), MP.OKbut(), MP.CloseBut()));
         boolean popUp = (MP.ModalWindow().isDisplayed() && MP.OKbut().isDisplayed() &&
                 MP.CloseBut().isDisplayed());
-        if (popUp=true){
-            System.out.print("The pop is displayed now ");
+        if (popUp){
+            System.out.print("The pop is displayed after clicking Add button ");
         } else {
             System.out.println("The pop up is not shown after clicking Add button");
         }
@@ -84,17 +87,14 @@ public class MedicationRequest extends LogIn {
         }
          Assert.assertTrue(driver.getCurrentUrl().contains("medication/edit/new"));
     }
+    //setting main method to manage all methods in the class
     public static void main (String [] args)throws Exception {
         MedicationRequest MR = new MedicationRequest();
         MR.BeforeLogin();
         MR.ValidLog();
         MR.Medicatonrequest();
-        //MR.ShuttingDown();
+        MR.ShuttingDown();
     }
-
-
-
-
 
 
 }

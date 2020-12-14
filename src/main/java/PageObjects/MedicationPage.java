@@ -9,41 +9,35 @@ import java.util.List;
 public class MedicationPage {
 
     WebDriver driver;
+    //creating a constructor
     public MedicationPage (WebDriver driver){
         this.driver = driver;
     }
-
+    //setting the locators for elements
     By MedicationSection = By.id("ember767");
-    By MedSecList = By.xpath("//*[@id=\"ember765\"]/div[2]");
-    By Requests = By.xpath("//*[@id=\"ember2148\"]");
-    By Completed = By.xpath("//*[@id=\"ember2151\"]");
-    By NewRequest = By.xpath("//*[@id=\"ember2170\"]");
-    By ReturnMedication = By.xpath("//*[@id=\"ember2210\"]");
-    By Patient = By.xpath("//*[@id=\"patientTypeAhead-ember2510\"]");
-    By PatientP00323 = By.xpath("//*[@id=\"ember2546\"]/span/div/div/div/strong");
-    By VisitDate = By.xpath("//*[@id=\"visit-ember2555\"]");
-    //By CalendarDate = By.xpath("");
-    By Medication = By.xpath("//*[@id=\"inventoryItemTypeAhead-ember2577\"]");
-    //By MedicationSelect = By.xpath("");
-    By Prescription = By.xpath("//*[@id=\"prescription-ember2609\"]");
-    By PrescriptionDate = By.xpath("//*[@id=\"display_prescriptionDate-ember2632\"]");
+    By Requests = By.xpath("//*[@id=\"ember2158\"]");
+    By Completed = By.xpath("//*[@id=\"ember2161\"]");
+    By NewRequest = By.xpath("//*[@id=\"ember2180\"]");
+    By ReturnMedication = By.xpath("//*[@id=\"ember2220\"]");
+    By Patient = By.xpath("//*[@id=\"patientTypeAhead-ember2324\"]");
+    By VisitDate = By.xpath("//*[@id=\"visit-ember2369\"]");
+    By Medication = By.xpath("//*[@id=\"inventoryItemTypeAhead-ember2391\"]");
+    By Prescription = By.xpath("//*[@id=\"prescription-ember2423\"]");
+    By PrescriptionDate = By.xpath("//*[@id=\"display_prescriptionDate-ember2446\"]");
     By WeekDay = By.xpath("/html/body/div[2]/div/table/thead/tr/th[2]/abbr");
-    By Quantity = By.xpath("//*[@id=\"quantity-ember2651\"]");
-    By Refils = By.xpath("//*[@id=\"refills-ember2658\"]");
-    By MedicationBlock = By.partialLinkText("#/medication/completed");
-    By AddButton = By.xpath("//*[@id=\"ember2473\"]/div/div[2]/button[2]");
+    By Quantity = By.xpath("//*[@id=\"quantity-ember2465\"]");
+    By Refils = By.xpath("//*[@id=\"refills-ember2472\"]");
+    By AddButton = By.xpath("//*[@id=\"ember2287\"]/div/div[2]/button[2]");
     By modalWin = By.xpath("/html/body/div[1]/div[2]/div/div/div");
     By closeBut = By.xpath("/html/body/div[1]/div[2]/div/div/div/div[1]/button");
     By OKBut = By.xpath("/html/body/div[1]/div[2]/div/div/div/div[3]/button");
-    By Medicationblock = By.partialLinkText("#/medication");
 
-    public WebElement MedSec(){
+    //setting methods to return elements names
+    public WebElement MedSec (){
+
         return driver.findElement(MedicationSection);
     }
-    public WebElement MedSeclist (){
 
-        return driver.findElement(MedSecList);
-    }
     public WebElement Reque (){
 
         return driver.findElement(Requests);
@@ -65,10 +59,7 @@ public class MedicationPage {
 
         return driver.findElement(Patient);
     }
-    public WebElement PatientwithNum (){
 
-        return driver.findElement(PatientP00323);
-    }
     public WebElement DateVisit (){
 
         return driver.findElement(VisitDate);
@@ -112,9 +103,7 @@ public class MedicationPage {
 
         return driver.findElement(OKBut);
     }
-    public List<WebElement> MedBlock (){
-        return (List<WebElement>) driver.findElement(Medicationblock);
-    }
+
 
 
 
