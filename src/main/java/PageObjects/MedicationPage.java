@@ -4,17 +4,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.util.List;
-
 public class MedicationPage {
 
     WebDriver driver;
-    //creating a constructor
+
     public MedicationPage (WebDriver driver){
         this.driver = driver;
     }
-    //setting the locators for elements
-    By MedicationSection = By.id("ember767");
+    By MedicationSection = By.xpath("//*[@id=\"ember767\"]");
     By Requests = By.xpath("//*[@id=\"ember2158\"]");
     By Completed = By.xpath("//*[@id=\"ember2161\"]");
     By NewRequest = By.xpath("//*[@id=\"ember2180\"]");
@@ -32,7 +29,6 @@ public class MedicationPage {
     By closeBut = By.xpath("/html/body/div[1]/div[2]/div/div/div/div[1]/button");
     By OKBut = By.xpath("/html/body/div[1]/div[2]/div/div/div/div[3]/button");
 
-    //setting methods to return elements names
     public WebElement MedSec (){
 
         return driver.findElement(MedicationSection);
@@ -97,15 +93,13 @@ public class MedicationPage {
         return driver.findElement(modalWin);
     }
     public WebElement CloseBut (){
+
         return driver.findElement(closeBut);
     }
+
     public WebElement OKbut(){
 
         return driver.findElement(OKBut);
     }
-
-
-
-
 
 }

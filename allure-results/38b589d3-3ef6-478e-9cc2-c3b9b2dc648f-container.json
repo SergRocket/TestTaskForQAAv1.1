@@ -1,0 +1,1 @@
+{"uuid":"38b589d3-3ef6-478e-9cc2-c3b9b2dc648f","name":"TT(TestTaskForQAA)","children":["0db4eb14-a9ce-4482-bc47-b382e9fa412d"],"befores":[{"name":"BeforeLogin","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1608062513594,"stop":1608062525271}],"afters":[],"links":[],"start":1608062513557,"stop":1608062525676}

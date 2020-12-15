@@ -1,13 +1,18 @@
 package TestCases;
-
+import org.testng.annotations.Test;
 
 public class ValidLogin extends LogIn {
 
-    //main method to manage the methods from inherited class
-    public static void main (String [] args) {
+    @Test
+    public void LogIn () throws InterruptedException {
+          ValidLog();
+    }
+
+    public static void main (String [] args) throws InterruptedException {
         ValidLogin VL = new ValidLogin();
         VL.BeforeLogin();
         VL.ValidLog();
         VL.ShuttingDown();
     }
+
 }
